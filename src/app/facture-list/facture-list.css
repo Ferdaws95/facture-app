@@ -130,3 +130,22 @@ button {
 .button:hover {
   background-color: #072748;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 350px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  align-self: flex-end;
+}

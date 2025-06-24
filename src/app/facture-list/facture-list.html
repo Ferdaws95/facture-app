@@ -2,12 +2,36 @@
 <h2 style="font-size :50px; text-decoration: underline; margin-bottom: 20px;" >Facture pour Mercerie </h2>
 <h1>Ajouter un article</h1>
 
+<!--  Méthode2  // Formulaire Materiel Angular-->
+<!-- Formulaire Angular Reactive -->
+<form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()">
+  <mat-form-field>
+    <mat-label>Designation</mat-label>
+    <input matInput formControlName="Designation" placeholder="Désignation">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Quantité</mat-label>
+    <input type="number" matInput formControlName="Quantite" placeholder="Quantité">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Prix unitaire (£)</mat-label>
+    <input type="number" matInput formControlName="PrixUnitaire" placeholder="Prix unitaire (£)">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Ajouter un article</button>
+</form>
+
+<!-- Méthode2  // Formulaire FormGroup
 <form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()" class="facture-form">
   <input formControlName="Designation" placeholder="Désignation" />
   <input type="number" formControlName="Quantite" placeholder="Quantité" />
   <input type="number" formControlName="PrixUnitaire" placeholder="Prix unitaire (£)" />
   <button type="submit">Ajouter un article</button>
 </form>
+-->
+
  <h2>Liste des Factures</h2>
 
 <!--Méthode 1 : en utilisant le model de Table matérial Angular-->
