@@ -1,0 +1,132 @@
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.demo-table thead {
+  background-color: hsl(210, 22%, 54%);
+  color: white;
+}
+
+.demo-table th, .demo-table td {
+  padding: 12px 16px;
+  border: 1px solid #858484;
+  text-align: left;
+}
+
+.demo-table tr:nth-child(even) {
+  background-color: #edecec;
+}
+
+.demo-table tr:hover {
+  background-color: #e3f2fd;
+}
+.bg-tva {
+  color: hsl(210, 24%, 27%);
+  font-weight: bold;
+  font-size:18px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+
+}
+
+div h4 {
+  margin: 10px 0;
+  font-weight: 500;
+  color: #444;
+  font-size: 18px;
+}
+
+div {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 2px solid #072748;
+
+}
+
+
+h1{ margin: 10px 0;
+  font-weight: 500;
+  color: #444;
+font-size :30px
+}
+
+.facture-form {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.facture-form input {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.facture-form input:focus {
+  border-color:  #072748;
+  outline: none;
+}
+
+.facture-form button {
+  padding: 12px;
+  background-color: #708aa4;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.facture-form button:hover {
+  background-color: #072748;
+}
+
+
+.total {
+  background-color: #f1f1f1;
+  border: 1.5px solid #07274896;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+  max-width: 300px;
+  margin-left: auto;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.total h4 {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  color: #072748;
+  font-size: 18px;
+  font-weight: 600;
+}
+button {
+  padding: 12px;
+  background-color: #708aa4;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #072748;
+}

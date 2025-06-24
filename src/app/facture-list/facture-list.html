@@ -1,0 +1,113 @@
+
+<h2 style="font-size :50px; text-decoration: underline; margin-bottom: 20px;" >Facture pour Mercerie </h2>
+<h1>Ajouter un article</h1>
+
+<form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()" class="facture-form">
+  <input formControlName="Designation" placeholder="Désignation" />
+  <input type="number" formControlName="Quantite" placeholder="Quantité" />
+  <input type="number" formControlName="PrixUnitaire" placeholder="Prix unitaire (£)" />
+  <button type="submit">Ajouter un article</button>
+</form>
+ <h2>Liste des Factures</h2>
+
+<!--Méthode 1 : en utilisant le model de Table matérial Angular-->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef class="bg-tva"> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Designation">
+    <th mat-header-cell *matHeaderCellDef class="bg-tva" > Désignation </th>
+    <td mat-cell *matCellDef="let element"> {{element.Designation}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Quantite">
+    <th mat-header-cell *matHeaderCellDef class="bg-tva"> Quantité </th>
+    <td mat-cell *matCellDef="let element"> {{element.Quantite}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="PrixUnitaire">
+    <th mat-header-cell *matHeaderCellDef class="bg-tva"> Prix unitaire (en £) </th>
+    <td mat-cell *matCellDef="let element"> {{element.PrixUnitaire}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="TVA">
+    <th mat-header-cell *matHeaderCellDef class="bg-tva"> TVA (EN %) </th>
+    <td mat-cell *matCellDef="let element"> {{element.tva}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="PrixTotalArticle">
+    <th mat-header-cell *matHeaderCellDef class="bg-tva"> Total H.T (en £) </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.Quantite * element.PrixUnitaire  }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div class="total">
+  <h6>
+    TOTAL H.T : {{ totalHT }} €
+  </h6>
+
+  <h6>
+    Remise 10% : {{ totalRemise }} €
+  </h6>
+
+  <h6>
+    TOTAL Remise H.T :{{ totalRemiseHT }} €
+  </h6>
+
+  <h6>
+    TVA 20% :{{ TVA }} €
+  </h6>
+
+  <h4>
+    TOTAL (T.T.C ):   {{ totalGeneral }} €
+  </h4>
+
+</div>
+
+<!--Méthode 2: avec boucle for -->
+<!--
+<table class="demo-table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Désignation</th>
+      <th>Quantité</th>
+      <th>Prix unitaire (en £)</th>
+      <th>TVA (en %)</th>
+      <th>Total H.T (en £)</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (article of dataSource; track article) {
+      <tr>
+        <td>{{ article.position }}</td>
+        <td>{{ article.Designation }}</td>
+        <td>{{ article.Quantite }}</td>
+        <td>{{ article.PrixUnitaire }}</td>
+        <td>{{ article.tva }}</td>
+        <td>{{ article.PrixTotalArticle }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<div>
+  <h4 >TOTAL H.T : {{ totalHT }} €</h4>
+  <h4>Remise 10% : {{ totalRemise }} €</h4>
+  <h4>TOTAL Remise H.T : {{ totalRemiseHT }} €</h4>
+  <h4>TVA 20% : {{ TVA | number:'1.2-2' }} €</h4>
+  <h4>TOTAL T.T.C : {{ totalGeneral }} €</h4>
+</div>
+
+-->
