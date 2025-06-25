@@ -1,36 +1,12 @@
 
-<h2 style="font-size :50px; text-decoration: underline; margin-bottom: 20px;" >Facture pour Mercerie </h2>
-<h1>Ajouter un article</h1>
+<h2 style="font-size: 50px; text-decoration: underline; margin: 20px;">Facture</h2>
+<!-- Aperçu des données saisies -->
+<div class="facture-preview">
+  <p><strong>Destinataire :</strong> {{ destinataire || 'Non renseigné' }}</p>
+  <p><strong>Date de la facture :</strong> {{ dateFacture ? (dateFacture | date:'dd/MM/yyyy') : 'Non renseignée' }}</p>
+</div>
 
-<!--  Méthode2  // Formulaire Materiel Angular-->
-<!-- Formulaire Angular Reactive -->
-<form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()">
-  <mat-form-field>
-    <mat-label>Designation</mat-label>
-    <input matInput formControlName="Designation" placeholder="Désignation">
-  </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Quantité</mat-label>
-    <input type="number" matInput formControlName="Quantite" placeholder="Quantité">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Prix unitaire (£)</mat-label>
-    <input type="number" matInput formControlName="PrixUnitaire" placeholder="Prix unitaire (£)">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit">Ajouter un article</button>
-</form>
-
-<!-- Méthode2  // Formulaire FormGroup
-<form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()" class="facture-form">
-  <input formControlName="Designation" placeholder="Désignation" />
-  <input type="number" formControlName="Quantite" placeholder="Quantité" />
-  <input type="number" formControlName="PrixUnitaire" placeholder="Prix unitaire (£)" />
-  <button type="submit">Ajouter un article</button>
-</form>
--->
 
  <h2>Liste des Factures</h2>
 
@@ -61,7 +37,7 @@
 
 
   <ng-container matColumnDef="TVA">
-    <th mat-header-cell *matHeaderCellDef class="bg-tva"> TVA (EN %) </th>
+    <th mat-header-cell *matHeaderCellDef class="bg-tva"> TVA (en %) </th>
     <td mat-cell *matCellDef="let element"> {{element.tva}} </td>
   </ng-container>
 
@@ -135,3 +111,55 @@
 </div>
 
 -->
+<div class="facture-preview">
+<!-- Bloc de saisie Date + Destinataire -->
+ <h1>Renseignements </h1>
+<div class="facture-infos">
+  <mat-form-field appearance="outline">
+    <mat-label>Destinataire</mat-label>
+    <input matInput [(ngModel)]="destinataire" placeholder="Nom du destinataire" >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Date de Facture</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="dateFacture" placeholder="Choisir une date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+
+<!-- Bloc ajout d'un article  -->
+<h1>Ajouter un article</h1>
+
+<!--  Méthode2  // Formulaire Materiel Angular-->
+<!-- Formulaire Angular Reactive -->
+<form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()">
+  <mat-form-field>
+    <mat-label>Designation</mat-label>
+    <input matInput formControlName="Designation" placeholder="Désignation">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Quantité</mat-label>
+    <input type="number" matInput formControlName="Quantite" placeholder="Quantité">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Prix unitaire (£)</mat-label>
+    <input type="number" matInput formControlName="PrixUnitaire" placeholder="Prix unitaire (£)">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Ajouter un article</button>
+</form>
+
+<!-- Méthode2  // Formulaire FormGroup
+<form [formGroup]="factureForm" (ngSubmit)="ajouterFacture()" class="facture-form">
+  <input formControlName="Designation" placeholder="Désignation" />
+  <input type="number" formControlName="Quantite" placeholder="Quantité" />
+  <input type="number" formControlName="PrixUnitaire" placeholder="Prix unitaire (£)" />
+  <button type="submit">Ajouter un article</button>
+</form>
+-->
+
+</div>

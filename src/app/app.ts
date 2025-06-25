@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { routes } from './app.routes';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'; // 👈 ajouter ceci
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -12,7 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet,
@@ -25,7 +24,16 @@ import { MatButtonModule } from '@angular/material/button';
             MatButtonModule,
             MatTableModule ,
             MatFormFieldModule,
-            MatInputModule
+            MatInputModule,
+            CommonModule,
+            ReactiveFormsModule,
+            MatTableModule,
+            FormsModule,
+
+
+
+
+
 
           ],
 
